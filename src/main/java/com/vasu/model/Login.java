@@ -1,17 +1,36 @@
 package com.vasu.model;
 
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "USERS")
 public class Login {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="uid")
 	private int userId;
+	
+	@Column(name = "firstName")
 	private String firstName;
+	
+	@Column(name = "lastName")
 	private String lastName;
+	
+	@Column(name = "email")
 	private String email;
+	
+	@Column(name = "phone")
 	private String moNo;
-	@Size(min=2, max=8, message="Please enter Username")
+	
+	@Column(name = "username")
 	private String username;
-	@Pattern(regexp="^[a-zA-Z0-9]{8}", message="password size must be 8 ")
+	
+	@Column(name = "password")
 	private String password;
 	
 	public int getUserId() {
